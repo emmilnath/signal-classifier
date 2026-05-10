@@ -1,0 +1,21 @@
+# Signal Classifier — Default Training Configuration
+
+data:
+  hdf5_path: null          # Path to RadioML 2018.01A HDF5 file (null → synthetic)
+  snr_filter: null         # e.g. [0, 30] to filter by SNR range
+  val_split: 0.15
+  test_split: 0.15
+
+model:
+  num_classes: 24          # RadioML 2018.01A has 24 modulation types
+  base_channels: 64        # Feature map width (doubled at each stage)
+  num_blocks: 2            # Residual blocks per stage
+  dropout: 0.2
+
+training:
+  epochs: 60
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  scheduler: cosine        # cosine annealing

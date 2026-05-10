@@ -1,0 +1,19 @@
+# Train only on high-SNR samples (≥ 10 dB) for maximum accuracy
+
+data:
+  hdf5_path: null
+  snr_filter: [10, 30]
+  val_split: 0.15
+  test_split: 0.15
+
+model:
+  num_classes: 24
+  base_channels: 64
+  num_blocks: 2
+  dropout: 0.15
+
+training:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
